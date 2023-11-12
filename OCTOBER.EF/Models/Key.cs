@@ -6,31 +6,24 @@ using Microsoft.EntityFrameworkCore;
 
 namespace OCTOBER.EF.Models
 {
-    [Table("KEYS")]
-    [Index("Use", Name = "IX_KEYS_USE")]
+    [Index("Use", Name = "IX_Keys_Use")]
     public partial class Key
     {
         [Key]
-        [Column("ID")]
         public string Id { get; set; } = null!;
-        [Column("VERSION")]
         [Precision(10)]
         public int Version { get; set; }
-        [Column("CREATED")]
         [Precision(7)]
         public DateTime Created { get; set; }
-        [Column("USE")]
         public string? Use { get; set; }
-        [Column("ALGORITHM")]
         [StringLength(100)]
         public string Algorithm { get; set; } = null!;
-        [Column("IS_X509_CERTIFICATE")]
+        [Column("IsX509Certificate")]
         [Precision(1)]
-        public bool IsX509Certificate { get; set; }
-        [Column("DATA_PROTECTED")]
+        public bool IsX509certificate { get; set; }
         [Precision(1)]
         public bool DataProtected { get; set; }
-        [Column("DATA")]
+        [Column(TypeName = "NCLOB")]
         public string Data { get; set; } = null!;
     }
 }

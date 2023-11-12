@@ -6,21 +6,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace OCTOBER.EF.Models
 {
-    [Table("ASP_NET_USER_LOGINS")]
-    [Index("UserId", Name = "IX_ASP_NET_USER_LOGINS_USER_ID")]
+    [Index("UserId", Name = "IX_AspNetUserLogins_UserId")]
     public partial class AspNetUserLogin
     {
         [Key]
-        [Column("LOGIN_PROVIDER")]
         [StringLength(128)]
         public string LoginProvider { get; set; } = null!;
         [Key]
-        [Column("PROVIDER_KEY")]
         [StringLength(128)]
         public string ProviderKey { get; set; } = null!;
-        [Column("PROVIDER_DISPLAY_NAME")]
         public string? ProviderDisplayName { get; set; }
-        [Column("USER_ID")]
         public string UserId { get; set; } = null!;
 
         [ForeignKey("UserId")]
